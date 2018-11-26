@@ -20,6 +20,7 @@ amount of currency to convert
 is a float
     Returns: amount of currency、 
 received in the given exchange."""
+    import json
     from urllib.request import urlopen
 
     doc = urlopen\

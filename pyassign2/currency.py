@@ -20,14 +20,13 @@ amount of currency to convert
 is a float
     Returns: amount of currency、 
 received in the given exchange."""
-    import json
     from urllib.request import urlopen
 
     doc = urlopen\
     ('http://cs1110.cs.cornell.\
 edu/2016fa/a1server.php?from='\
 +currency_from+'&to='+currency\
-_to+'&amt='+amount_from)
+_to+'&amt={0}'.format(amount_from))
     docstr = doc.read()
     doc.close()
     jstr = docstr.decode('ascii')

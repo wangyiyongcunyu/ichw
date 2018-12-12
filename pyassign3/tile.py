@@ -75,7 +75,7 @@ def main():
     b=int(brick[1])
     answer=[]
     mainpart(m,n,a,b,answer)
-    print(answer)
+    print('有{0}种铺法，分别是：{1}'.format(len(answer),answer))
     if answer!=[]:
         x=int(input('请输入您需要将第几种可视化（从左到右排）（如6）'))
         t=answer[x-1]

@@ -11,21 +11,22 @@ def mainpart(m,n,a,b,alls=[],i=0,j=0,ans=[],lst=[]):
     if i==m:
         j=j+1
         i=0
-    if (lst==[-1]*m*n) and (ans not in alls):
+    if lst==[-1]*m*n:
         alls.append(ans[:])
-    if ((j*m)+i)<(m*n) and lst[j*m+i]== -1:
-        mainpart(m,n,a,b,alls,i+1,j,ans,lst)
     else:
-        if jud(m,n,a,b,i,j,lst):
-            lst1=lst[:]
-            ans1=ans[:]
-            do(a,b,m,i,j,lst1,ans1)
-            mainpart(m,n,a,b,alls,i+1,j,ans1,lst1)
-        if jud(m,n,b,a,i,j,lst):
-            lst1=lst[:]
-            ans1=ans[:]
-            do(b,a,m,i,j,lst1,ans1)
-            mainpart(m,n,a,b,alls,i+1,j,ans1,lst1)
+        if ((j*m)+i)<(m*n) and lst[j*m+i]== -1:
+            mainpart(m,n,a,b,alls,i+1,j,ans,lst)
+        else:
+            if jud(m,n,a,b,i,j,lst):
+                lst1=lst[:]
+                ans1=ans[:]
+                do(a,b,m,i,j,lst1,ans1)
+                mainpart(m,n,a,b,alls,i+1,j,ans1,lst1)
+            if jud(m,n,b,a,i,j,lst):
+                lst1=lst[:]
+                ans1=ans[:]
+                do(b,a,m,i,j,lst1,ans1)
+                mainpart(m,n,a,b,alls,i+1,j,ans1,lst1)
         
         
 def jud(m,n,a,b,i,j,lst):
@@ -55,10 +56,10 @@ def do(a,b,m,i,j,lst,ans):
     ans.append(re)
 
 import turtle
+wn=turtle.Screen()
 
 def visible(m,n,t,i=0):
-    '''通过turtle将用户选择的铺法可视化'''
-    wn=turtle.Screen()
+    '''通过turtle将用户选择的铺法可视化'''    
     l=turtle.Turtle()
     wn=turtle.Screen()
     l=turtle.Turtle() 
@@ -76,7 +77,19 @@ def visible(m,n,t,i=0):
     l.goto(x1*30,-y0*30)
     l.goto(x1*30,-y1*30)
     if i<len(t)-1:
-        visible(m,n,t,i+1)    
+        visible(m,n,t,i+1)  
+ 
+def signal(m,n,number=0):
+    '''通过turtle给砖标号
+       验证结果'''
+    l2=turtle.Turtle()
+    for i in range(n):
+        for j in range(m):
+            l2.up()
+            l2.goto(30*j+20,-(30*i+20))
+            l2.write(number,False,align="center")
+            number+=1
+    l2.hideturtle()
     
 def main():
     '''数字间的逗号为英文符号'''

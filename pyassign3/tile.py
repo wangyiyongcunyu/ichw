@@ -36,9 +36,9 @@ def jud(m,n,a,b,i,j,lst):
        铺砖的位置没有其他砖'''
     if (i+a)>m or (j+b)>n:
         return False
-    for j in range(j,j+b):
-        for i in range(i,i+a):
-            if lst[j*m+i]==-1:
+    for z in range(j,j+b):
+        for x in range(i,i+a):
+            if lst[z*m+x]==-1:
                 return False
     return True
 
@@ -47,9 +47,9 @@ def do(a,b,m,i,j,lst,ans):
        ans表示其中一种铺法
        re是元组（表示一块砖铺的位点）'''
     re=()
-    for i in range(i,i+a):
-        for j in range(j,j+b):
-            k=j*m+i
+    for z in range(j,j+b):
+        for x in range(i,i+a):
+            k=z*m+x
             lst[k]=-1
             re=re+(k,)
     ans.append(re)

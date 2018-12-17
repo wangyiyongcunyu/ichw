@@ -57,12 +57,12 @@ def visible(m,n,t,i=0):
     x1=int(k[-1]%m+1)
     y1=int(k[-1]//m+1)
     l.up()
-    l.goto(x1*30,y1*30)
+    l.goto(x1*30,-y1*30)
     l.down()
-    l.goto(x0*30,y1*30)
-    l.goto(x0*30,y0*30)
-    l.goto(x1*30,y0*30)
-    l.goto(x1*30,y1*30)
+    l.goto(x0*30,-y1*30)
+    l.goto(x0*30,-y0*30)
+    l.goto(x1*30,-y0*30)
+    l.goto(x1*30,-y1*30)
     if i<len(t)-1:
         visible(m,n,t,i+1)    
     

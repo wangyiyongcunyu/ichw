@@ -108,6 +108,8 @@ def main():
         x=int(input('请输入您需要将第几种可视化（从左到右排）（如6）'))
         t=answer[x-1]
         visible(m,n,t,i=0)
+        signal(m,n,number=0)
+        
     
 if __name__=='__main__':
     main()

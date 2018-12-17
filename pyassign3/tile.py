@@ -11,22 +11,21 @@ def mainpart(m,n,a,b,alls=[],i=0,j=0,ans=[],lst=[]):
     if i==m:
         j=j+1
         i=0
-    if lst==[-1]*m*n:
+    if (lst==[-1]*m*n) and (ans not in alls):
         alls.append(ans[:])
+    if ((j*m)+i)<(m*n) and lst[j*m+i]== -1:
+        mainpart(m,n,a,b,alls,i+1,j,ans,lst)
     else:
-        if ((j*m)+i)<(m*n) and lst[j*m+i]== -1:
-            mainpart(m,n,a,b,alls,i+1,j,ans,lst)
-        else:
-            if jud(m,n,a,b,i,j,lst):
-                lst1=lst[:]
-                ans1=ans[:]
-                do(a,b,m,i,j,lst1,ans1)
-                mainpart(m,n,a,b,alls,i+1,j,ans1,lst1)
-            if jud(m,n,b,a,i,j,lst):
-                lst1=lst[:]
-                ans1=ans[:]
-                do(b,a,m,i,j,lst1,ans1)
-                mainpart(m,n,a,b,alls,i+1,j,ans1,lst1)
+        if jud(m,n,a,b,i,j,lst):
+            lst1=lst[:]
+            ans1=ans[:]
+            do(a,b,m,i,j,lst1,ans1)
+            mainpart(m,n,a,b,alls,i+1,j,ans1,lst1)
+        if jud(m,n,b,a,i,j,lst):
+            lst1=lst[:]
+            ans1=ans[:]
+            do(b,a,m,i,j,lst1,ans1)
+            mainpart(m,n,a,b,alls,i+1,j,ans1,lst1)
         
         
 def jud(m,n,a,b,i,j,lst):
@@ -107,8 +106,9 @@ def main():
     if answer!=[]:
         x=int(input('请输入您需要将第几种可视化（从左到右排）（如6）'))
         t=answer[x-1]
-        visible(m,n,t,i=0)
         signal(m,n,number=0)
+        visible(m,n,t,i=0)
+        
         
     
 if __name__=='__main__':

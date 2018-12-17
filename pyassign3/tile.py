@@ -26,8 +26,7 @@ def mainpart(m,n,a,b,alls=[],i=0,j=0,ans=[],lst=[]):
             ans1=ans[:]
             do(b,a,m,i,j,lst1,ans1)
             mainpart(m,n,a,b,alls,i+1,j,ans1,lst1)
-        
-        
+ 
 def jud(m,n,a,b,i,j,lst):
     '''判断是否能铺
        包括：
@@ -76,8 +75,8 @@ def visible(m,n,t,i=0):
     l.goto(x1*30,-y0*30)
     l.goto(x1*30,-y1*30)
     if i<len(t)-1:
-        visible(m,n,t,i+1)  
- 
+        visible(m,n,t,i+1)
+
 def signal(m,n,number=0):
     '''通过turtle给砖标号
        验证结果'''
@@ -89,7 +88,7 @@ def signal(m,n,number=0):
             l2.write(number,False,align="center")
             number+=1
     l2.hideturtle()
-    
+
 def main():
     '''数字间的逗号为英文符号'''
     wall=input('请输入墙的尺寸（如4，2）').split(',')

@@ -79,6 +79,7 @@ def visible(m,n,t,i=0):
         visible(m,n,t,i+1)    
     
 def main():
+    '''数字间的逗号为英文符号'''
     wall=input('请输入墙的尺寸（如4，2）').split(',')
     brick=input('请输入砖的尺寸（如2，1）').split(',')
     m=int(wall[0])

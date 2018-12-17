@@ -1,5 +1,11 @@
 def mainpart(m,n,a,b,alls=[],i=0,j=0,ans=[],lst=[]):
-    '''主体部分，应用递归'''
+    '''主体部分，应用递归
+       alls表示包含所有铺法的列表
+       ans表示其中一种铺法
+       m,n表示墙的长和宽
+       a,b表示砖的长和宽
+       i表示第几列
+       j表示第几行'''
     if lst==[]:
         lst = [i for i in range(m*n)]
     if i==m:
@@ -23,7 +29,11 @@ def mainpart(m,n,a,b,alls=[],i=0,j=0,ans=[],lst=[]):
         
         
 def jud(m,n,a,b,i,j,lst):
-    '''判断是否能铺，包括长和宽'''
+    '''判断是否能铺
+       包括：
+       长度符合
+       宽度符合
+       铺砖的位置没有其他砖'''
     if (i+a)>m or (j+b)>n:
         return False
     for j in range(j,j+b):
@@ -33,7 +43,9 @@ def jud(m,n,a,b,i,j,lst):
     return True
 
 def do(a,b,m,i,j,lst,ans):
-    '''铺砖的方法，ans表示其中一种铺法，re是元组（a,b,……）'''
+    '''铺砖的方法
+       ans表示其中一种铺法
+       re是元组（表示一块砖铺的位点）'''
     re=()
     for i in range(i,i+a):
         for j in range(j,j+b):
@@ -45,7 +57,7 @@ def do(a,b,m,i,j,lst,ans):
 import turtle
 
 def visible(m,n,t,i=0):
-    '''将用户选择的铺法可视化'''
+    '''通过turtle将用户选择的铺法可视化'''
     wn=turtle.Screen()
     l=turtle.Turtle()
     wn=turtle.Screen()

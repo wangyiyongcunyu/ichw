@@ -108,7 +108,5 @@ def main():
         signal(m,n,number=0)
         visible(m,n,t,i=0)
         
-        
-    
 if __name__=='__main__':
     main()

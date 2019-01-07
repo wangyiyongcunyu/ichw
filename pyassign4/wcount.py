@@ -28,7 +28,8 @@ def wcount(lines,topn):
             print(i[0], " ", i[1]) 
 
 if __name__ == '__main__': 
-""" sys.argv 通过命令提示行得到的列表，一定存在第一项，为文件名。 """ 
+""" sys.argv 通过命令提示行得到的列表，一定存在第一项，为文件名。
+""" 
     if len(sys.argv) == 1: 
 # 命令行仅给了一个参数，则无法找到网页，无法计数 
         print('Usage: {} url [topn]'.format(sys.argv[0])) 

@@ -24,7 +24,7 @@ def wcount(lines,topn):
         for i in l2: 
             print(i[0], " ", i[1])  
     else: 
-        for i in l2[:n]:
+        for i in l2[:topn]:
             print(i[0], " ", i[1]) 
 
 if __name__ == '__main__': 
